@@ -67,7 +67,7 @@ public class TeamTest {
   }
 
   @Test
-  @DisplayName("A team should initialize with 4 empty lines")
+  @DisplayName("A team should initialize with a list that contains 4 empty lines")
   public void init_lines_length4() {
     assertEquals(4, team.getLines().size());
     for (int i = 0; i < 4; i++) {

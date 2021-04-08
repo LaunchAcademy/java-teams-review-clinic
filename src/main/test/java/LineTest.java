@@ -19,7 +19,7 @@ public class LineTest {
   }
 
   @Test
-  @DisplayName("A Line should be initialized with an empty list of player")
+  @DisplayName("A Line should be initialized with an empty list of players")
   public void init_players_empty() {
     assertEquals(0, this.line.getPlayers().size());
   }
