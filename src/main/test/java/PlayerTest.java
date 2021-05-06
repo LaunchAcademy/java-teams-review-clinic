@@ -30,20 +30,20 @@ public class PlayerTest {
   }
 
   @Test
-  @DisplayName("getRoster returns a string with the players position")
-  public void getRoster_includesPosition() {
+  @DisplayName("#getRosterEntry returns a string with the players position")
+  public void getRosterEntry_includesPosition() {
     Assertions.assertTrue(this.player.getRosterEntry().contains(this.player.getPosition()));
   }
 
   @Test
-  @DisplayName("getRoster returns a string with the players firstName")
-  public void getRoster_includes_firstName() {
+  @DisplayName("#getRosterEntry returns a string with the players firstName")
+  public void getRosterEntry_includes_firstName() {
     Assertions.assertTrue(this.player.getRosterEntry().contains(this.player.getFirstName()));
   }
 
   @Test
-  @DisplayName("getRoster returns a string with the players lastName")
-  public void getRoster_includes_lastName() {
+  @DisplayName("#getRosterEntry returns a string with the players lastName")
+  public void getRosterEntry_includes_lastName() {
     Assertions.assertTrue(this.player.getRosterEntry().contains(this.player.getLastName()));
   }
 }

@@ -1,4 +1,5 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -25,17 +26,25 @@ public class LineTest {
   }
 
   @Test
-  @DisplayName("hasNoPlayers returns true if there are no players on the line")
-  public void hasNoPlayers_checks_for_players() {
-    assertTrue(this.line.hasNoPlayers());
-  }
-
-  @Test
-  @DisplayName("assign will add a player to the players list")
+  @DisplayName("#assign will add a player to the players list")
   public void assignPlayer_players_notEmpty() {
     Player player = new Player("Sally", "Something", "Right Wing");
     this.line.assign(player);
     assertEquals(1, this.line.getPlayers().size());
     assertEquals(player, this.line.getPlayers().get(0));
+  }
+
+  @Test
+  @DisplayName("#hasNoPlayers returns true if there are no players on the line")
+  public void hasNoPlayers_checks_for_players_and_finds_none() {
+    assertTrue(this.line.hasNoPlayers());
+  }
+
+  @Test
+  @DisplayName("#hasNoPlayers returns false if there are players on the line")
+  public void hasNoPlayers_checks_for_players_and_finds_one() {
+    Player player = new Player("Sally", "Something", "Right Wing");
+    this.line.assign(player);
+    assertFalse(this.line.hasNoPlayers());
   }
 }
