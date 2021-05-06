@@ -10,19 +10,13 @@ public class TeamTest {
 
   @BeforeEach
   public void setupTeam() {
-    this.team = new Team("Boston Bruins", "Hockey");
+    this.team = new Team("Boston Bruins");
   }
 
   @Test
   @DisplayName("A team is initialized with a name")
   public void init_name_present() {
     assertEquals("Boston Bruins", team.getName());
-  }
-
-  @Test
-  @DisplayName("A team is initialized with a sport")
-  public void init_sport_present() {
-    assertEquals("Hockey", team.getSport());
   }
 
   @Test
@@ -42,7 +36,7 @@ public class TeamTest {
 
   @Test
   @DisplayName("If the player is already a member, they will not be added to the members list.")
-  public void sign_lastName_twiceNoDupe() {
+  public void sign_same_player_twiceNoDupe() {
     Player player = new Player("Jon", "Snow", "Center");
     team.sign(player);
     team.sign(player);
@@ -54,6 +48,7 @@ public class TeamTest {
   public void getRoster_name_included() {
     Player player = new Player("Jon", "Snow", "Center");
     team.sign(player);
+    System.out.println(team.getRoster());
     assertTrue(team.getRoster().contains("Snow, Jon, Center"));
   }
 
@@ -66,20 +61,20 @@ public class TeamTest {
 
   }
 
-  @Test
-  @DisplayName("A team should initialize with a list that contains 4 empty lines")
-  public void init_lines_length4() {
-    assertEquals(4, team.getLines().size());
-    for (int i = 0; i < 4; i++) {
-      assertTrue(team.getLines().get(i).hasNoPlayers());
-    }
-  }
-
-  @Test
-  @DisplayName("#getOpenLines should return all the lines that are empty")
-  public void getUnassignedLines_list_length() {
-    Player player = new Player("Jon", "Snow", "Center");
-    team.getLines().get(0).assign(player);
-    assertEquals(3, team.getOpenLines().size());
-  }
+//  @Test
+//  @DisplayName("A team should initialize with a list that contains 4 empty lines")
+//  public void init_lines_length4() {
+//    assertEquals(4, team.getLines().size());
+//    for (int i = 0; i < 4; i++) {
+//      assertTrue(team.getLines().get(i).hasNoPlayers());
+//    }
+//  }
+//
+//  @Test
+//  @DisplayName("#getOpenLines should return all the lines that are empty")
+//  public void getUnassignedLines_list_length() {
+//    Player player = new Player("Jon", "Snow", "Center");
+//    team.getLines().get(0).assign(player);
+//    assertEquals(3, team.getOpenLines().size());
+//  }
 }
