@@ -6,6 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class TeamTest {
+
   private Team team;
 
   @BeforeEach
@@ -48,7 +49,6 @@ public class TeamTest {
   public void getRoster_name_included() {
     Player player = new Player("Jon", "Snow", "Center");
     team.sign(player);
-    System.out.println(team.getRoster());
     assertTrue(team.getRoster().contains("Snow, Jon, Center"));
   }
 
@@ -58,18 +58,19 @@ public class TeamTest {
     Captain capt = new Captain("Sue", "Helper", "Left Wing");
     team.sign(capt);
     assertTrue(team.getRoster().contains("Helper, Sue, Left Wing (Captain)"));
-
   }
 
 //  @Test
 //  @DisplayName("A team should initialize with a list that contains 4 empty lines")
 //  public void init_lines_length4() {
 //    assertEquals(4, team.getLines().size());
-//    for (int i = 0; i < 4; i++) {
-//      assertTrue(team.getLines().get(i).hasNoPlayers());
-//    }
-//  }
 //
+//    assertTrue(team.getLines().get(0).hasNoPlayers());
+//    assertTrue(team.getLines().get(1).hasNoPlayers());
+//    assertTrue(team.getLines().get(2).hasNoPlayers());
+//    assertTrue(team.getLines().get(3).hasNoPlayers());
+//  }
+
 //  @Test
 //  @DisplayName("#getOpenLines should return all the lines that are empty")
 //  public void getUnassignedLines_list_length() {
